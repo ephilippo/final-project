@@ -1,0 +1,42 @@
+main{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Lato', sans-serif;
+}	
+  
+#flex-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+#gameTitle{
+	font-family: 'Staatliches', cursive;
+	color: #E64643;
+	text-shadow: -2px 4px black;
+	font-size: 4em;
+	text-align: center;
+}
+
+.mpa{
+	width: 15em;
+	padding: 1em;
+	font-weight: 800;
+}
+
+.mpa, #loginForm {
+	background-color: #FFCE01;
+	margin-right: 2%;
+	margin-bottom: 2%;
+}
+
+.mpa, #createForm {
+	background-color: #4FD4DF;
+	margin-left: 2%;
+}
+
+.formTitle {
+	font-family: 'Staatliches', cursive;
+	text-shadow: -1px 2px white;
+}
