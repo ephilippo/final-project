@@ -1,0 +1,260 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A cool thing made with Glitch">
+    <title>Welcome to Pong!</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/108/three.min.js"></script>
+    <!--<script type="module" src="./public/script.js"></script>-->
+  </head>
+  <body>
+     <h1>
+       Welcome To Pong!
+    </h1>
+
+    <div class="leftColumn">
+      <h2>P1</h2>
+      <h2 id="score1">0</h2>
+    </div>
+    
+    <div class="rightColumn">
+      <h2>P2</h2>
+      <h2 id="score2">0</h2>
+    </div>
+    
+    <canvas id="canvas"></canvas>
+    
+    <script>
+      
+      //Global Game Variables and Objects
+      let renderer = null
+      let scene = null
+      let camera = null
+      let canvas = null
+      
+      let xSpeed = 0.5;
+      let ySpeed = 0.5;
+    
+      let score1 = 0;
+      let score2 = 0; 
+      let gameScore = 3;
+      
+      let ballSpeedx = 7;
+      let ballSpeedy = 2;
+      
+      let ball = null
+      let field = null
+      let paddleOne = null
+      const courtLength = 1000
+      const courtWidth = 2000
+      
+      let ballMaterial;
+      
+      draw();
+    
+      function draw() {
+        //RENDERER
+        canvas = document.getElementById("canvas");
+        renderer = new THREE.WebGLRenderer({ canvas: canvas });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth*0.7, window.innerHeight*0.7);
+        
+        
+
+        //CAMERA
+        camera = new THREE.PerspectiveCamera(70, window.innerWidth/window.innerHeight, 0.1, 1000);
+
+        //SCENE
+        scene = new THREE.Scene();
+
+        //LIGHTS
+        var light = new THREE.AmbientLight(0xffffff, 0.5);
+        scene.add(light);
+        
+        var light1 = new THREE.PointLight(0xffffff, 0.5);
+        scene.add(light1);
+      
+        drawGame();
+
+        //RENDER LOOP
+        requestAnimationFrame(render);
+        
+        function render() {
+          renderer.render(scene, camera);
+          requestAnimationFrame(render);
+          
+          document.addEventListener("keydown", paddleOneMovement, false);
+          document.addEventListener("keydown", paddleTwoMovement, false);
+          ballMovement();
+          collisionManagement()
+        }
+        
+      }
+      
+      function drawGame() {
+  
+        let ballGeometry = new THREE.SphereGeometry(30, 100, 100);
+        ballMaterial = new THREE.MeshLambertMaterial({color: 0xF0D467});
+        
+        let paddleGeometry = new THREE.BoxGeometry(50, 200, 50);
+        let paddleOneMaterial = new THREE.MeshLambertMaterial({color: 0x6773F0});
+        let paddleTwoMaterial = new THREE.MeshLambertMaterial({color: 0x68D98A});
+        
+        
+        let fieldGeometry = new THREE.PlaneGeometry(courtWidth*0.95, courtLength, 10, 10);
+        let fieldMaterial = new THREE.MeshLambertMaterial({color: 0xFF4045});
+        
+        let tableGeometry = new THREE.BoxGeometry(courtWidth*1.03, courtLength*1.15, 100);
+        let tableMaterial = new THREE.MeshLambertMaterial({color: 0x2B2B2B});
+        
+        paddleOne = new THREE.Mesh(paddleGeometry, paddleOneMaterial);
+        paddleTwo = new THREE.Mesh(paddleGeometry, paddleTwoMaterial);
+        ball = new THREE.Mesh(ballGeometry, ballMaterial);
+        field = new THREE.Mesh(fieldGeometry, fieldMaterial);
+        table = new THREE.Mesh(tableGeometry, tableMaterial);
+  
+        ball.position.set(0, 0, -950);
+        paddleOne.position.set(-courtWidth/2 + 50, 0, -950);
+        paddleTwo.position.set(courtWidth/2 - 50, 0, -950);
+        field.position.set(0, 0, -995);
+        table.position.z = -1050;
+        
+        
+        scene.add(ball);
+        scene.add(paddleOne);
+        scene.add(paddleTwo)
+        scene.add(field);
+        scene.add(table);
+        
+        
+      }
+      
+      function paddleOneMovement(event) {
+          
+        let keyCode = event.which;
+          
+        if(keyCode === 87) {
+          
+          if(paddleOne.position.y <= courtLength/2.7) { 
+            paddleOne.position.y += ySpeed * 75;
+          }
+          
+        }
+        else if(keyCode === 83) {
+          if(paddleOne.position.y >= -courtLength/2.7) {
+            paddleOne.position.y -= ySpeed * 75;
+          }    
+        }
+        else if(keyCode === 32) {
+          window.alert("Hello, Welcome to 3D pong. Player 1 use w and s to move your paddle. Player 2 use up and down arrow keys to move. Use the left and right arrow keys to change the speed of the ball. Enjoy! (Game still has a lot of work needed")
+        }
+        else if(keyCode === 39) {
+          ballSpeedx += 0.5
+          ballSpeedy += 0.5
+        }
+        else if(keyCode === 37) {
+          ballSpeedx -= 0.5
+          ballSpeedy -= 0.5
+        }
+        
+      }
+      
+      function paddleTwoMovement(event) {
+          
+        let keyCode = event.which;
+          
+        if(keyCode === 38) {
+          
+          if(paddleTwo.position.y <= courtLength/2.7) { 
+            paddleTwo.position.y += ySpeed * 75;
+          }
+          
+        }
+        else if(keyCode === 40) {
+          if(paddleTwo.position.y >= -courtLength/2.7) {
+            paddleTwo.position.y -= ySpeed * 75;
+          }
+        }
+        
+        
+        
+      }
+      
+      function ballMovement() {
+        ball.position.y += ballSpeedy
+        ball.position.x += ballSpeedx
+        
+        if(ball.position.y >= courtLength/2) {
+           ballSpeedy = -ballSpeedy 
+        }
+        
+        if(ball.position.y <= -courtLength/2) {
+           ballSpeedy = -ballSpeedy 
+        }
+   
+        if(ball.position.x <= paddleOne.position.x - 250) {
+          
+          ball.position.x = 0
+          ball.position.x = 0
+          
+          score1++;
+          
+          document.getElementById("score2").innerHTML = score1;   
+          
+          if(score1 >= gameScore) {
+            ballSpeedy = 0;
+            ballSpeedx = 0;
+            
+            window.alert("Player 2 wins. Reload the page to restart the game.")
+          }
+          
+        }
+        
+        if(ball.position.x >= paddleTwo.position.x + 250) {
+          
+          ball.position.x = 0
+          ball.position.x = 0
+          
+          score2++;
+          
+          document.getElementById("score1").innerHTML = score2; 
+          
+          if(score2 >= gameScore) {
+            ballSpeedy = 0;
+            ballSpeedx = 0;
+            
+            window.alert("Player 1 wins. Reload the page to restart the game.")
+          }
+          
+        }
+    
+      }
+      
+      function collisionManagement() {
+        
+        if(ball.position.x >= paddleTwo.position.x - 30 && ball.position.y <= (paddleTwo.position.y + 40) && ball.position.y >= (paddleTwo.position.y - 40)) {
+          ballSpeedy = -ballSpeedy
+          ballSpeedx = -ballSpeedx
+        }
+        
+        if(ball.position.x <= paddleOne.position.x + 30 && ball.position.y <= (paddleOne.position.y + 40) && ball.position.y >= (paddleOne.position.y - 40)) {
+          ballSpeedy = -ballSpeedy
+          ballSpeedx = -ballSpeedx
+        }
+        
+      }
+      
+    
+    </script>
+    
+    <h1>
+       Press Spacebar for Help!
+    </h1> 
+  </body>
+</html>
