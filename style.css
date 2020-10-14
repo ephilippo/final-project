@@ -4,6 +4,10 @@ main{
 	margin-right: auto;
 	font-family: 'Lato', sans-serif;
 }	
+
+#gameMain {
+	min-width: 40em;
+}
   
 .flex-container {
 	display: flex;
@@ -168,13 +172,16 @@ nav{
 
 .gameScoring{
 	font-family: 'Staatliches', cursive;
-	
+	z-index: 1;	
 }
 
 #p1{
+	margin-bottom: -0.5em;
 	text-shadow: -1px 4px #2FFA40;
+
 }
 
 #p2{
+	margin-top: -0.5em;
 	text-shadow: -1px 4px #4FD4DF;
 }
