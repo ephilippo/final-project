@@ -5,10 +5,13 @@ main{
 	font-family: 'Lato', sans-serif;
 }	
   
-#flex-container {
+.flex-container {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: center;
+}
+
+#loginFlex{
+		justify-content: center;
 }
 
 #gameTitle{
@@ -39,4 +42,139 @@ main{
 .formTitle {
 	font-family: 'Staatliches', cursive;
 	text-shadow: -1px 2px white;
+}
+
+.navItem{
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+.navImg{
+	height: 40px;
+}
+
+ ul{
+	display: flex;
+	list-style: none;
+	justify-content: center;
+	padding-left: 0;
+}
+
+nav{
+	border-bottom: solid 0.2em black;
+	margin-bottom: 5%;
+}
+
+#leftSidebar{
+	width: 40%;
+	min-width: 20em;
+	margin-right: 1em;
+	margin-left: 1em;
+	margin-bottom: 2em;
+}
+
+#rightSidebar{
+	width: 50%;
+	min-width: 20em;
+	margin-right: 1em;
+	margin-left: 1em;
+}
+
+#createLobby{
+	padding: 1em;
+	background-color: #FFCE01;
+}
+
+#lobbies{
+	padding: 1em;
+	background-color: #4FD4DF;
+	
+}
+
+#playAI{
+	background-color: #2FFA40;
+	padding: 1em;
+	margin-bottom: 2em;
+}
+
+#flex-gap{
+	width: 2em;
+	height: 2em;
+	background-color: blue;
+	margin-bottom: 2em;
+}
+
+#profile{
+	width: 100em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#usernameDisplay{
+	font-size: 2em;
+	text-align: center;
+
+}
+
+#name{
+	background-color: #4FD4DF;
+	width: 50%;
+	min-width: 20em;
+	padding: 0.5em;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.nameDeco{
+	height: 1.5em;
+	margin-top: 2em;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+}
+
+#ratio{
+	background-color: #2FFA40;
+	width: 50%;
+	min-width: 8em;
+	padding: 0em;
+	font-family: 'Staatliches', cursive;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 2em;
+	font-family: 'Staatliches', cursive;
+	text-shadow: -1px 2px white;
+}
+
+#ratio > h3{
+	margin-bottom: 0;
+}
+
+#gameBox{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #FFCE01;
+	padding: 1em;
+}
+
+#gameCanvas{
+	background-color: white;
+	width: 99%;
+}
+
+.gameScoring{
+	font-family: 'Staatliches', cursive;
+	
+}
+
+#p1{
+	text-shadow: -1px 4px #2FFA40;
+}
+
+#p2{
+	text-shadow: -1px 4px #4FD4DF;
 }

@@ -17,25 +17,66 @@
 			
 			<nav>
 				<ul>
-					<li>
-					Logout
-					</li>
 					
-					<li>
-					Your Profile
-					<img width="80px" height="80px" src="images/profile.png" alt="profile picture" />
+					<li class="navItem">
+						<a href="profile.html">
+							<img class="navImg" src="images/profile.png" alt="profile picture" />
+						</a>
 
 					</li>
 					
-					<li>
-					
-					</li>
+					<li class="navItem">
+						<a href="main_page.html">
+							<img class="navImg" src="images/logout.png" alt="exit sign" />					
+						</a>
+					</li>					
 			</nav>
-			<div id="flex-container">
-				<article id="profileIcon">
+			<div style="justify-content: center;" class="flex-container">
+				
+				<article id="leftSidebar">
+				
+					<section id="playAI">
+						
+						<h2 class="formTitle">Play Against a Computer</h2>
+						<a href="game.html">
+							<img width="60px" src="images/game-controller.png" alt="game controller" />
+						</a>
+						<p>Play against a perfect AI, and see how many rounds you can last!</p>
+						
+					</section>
+				
+					<section id="createLobby">
+			
+						<h2 class="formTitle">Create a New Lobby</h2>
+						
+						<form>
+							<label for="lobbyName">Lobby Name</label><br/>
+							<input type="text" id="lobbyName" name="lobbyName" placeholder="the smash arena"><br/><br/>
+							 
+							<label for="pass">Password (optional)</label><br/>
+							<input type="password" id="pass" name="pass" placeholder="lobster"><br/><br/>
+							 
+							<input type="submit" value="Create">
+						</form>
+					</section>
+				
+				</article>
+				
+				
+				<article id="rightSidebar">
+				
+					<section id="lobbies">
+						<h2 class="formTitle">Active Lobbies</h2>
+						<p>Click one to join!</p>
+						
+						<div id="lobbyList">
+						<p> This div will contain the list of lobbies</p>
+						</div>
+					</section>
 				</article>
 			</div>
 		</main>
+		
 	</body>
   
 </html>
