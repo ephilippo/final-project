@@ -1,0 +1,98 @@
+/* this file is loaded by index.html and styles the page */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 2em 1em;
+  line-height: 1.5em;
+  margin: 0;
+  overflow: hidden;
+  background-color: #E6CDFF;
+}
+
+h1 {
+  font-family: 'Press Start 2P', cursive;
+  color: #373fff;
+  max-width: calc(100% - 5rem);
+  line-height: 1.1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  flex-basis: auto;
+  
+}
+
+form {
+  background-color: #eee;
+  display: grid;
+  grid-gap: 1em;
+  padding: 1em;
+  max-width: 40ch;
+}
+
+input {
+  border: 1px solid silver;
+  display: block;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+}
+
+form button {
+  background-color: #bbbbf2;
+  border: 2px solid currentColor;
+  border-radius: .25em;
+  cursor: pointer;
+  font-size: inherit;
+  line-height: 1.4em;
+  padding: 0.25em 1em;
+  max-width: 20ch;
+}
+
+form button:hover {
+  background-color: lavender;
+}
+
+footer {
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid lightgrey;
+}
+
+#canvas {
+  padding: 0;
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.leftColumn {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 100px;
+  max-width: calc(100% - 5rem);
+  line-height: 1.1;
+  position: fixed;
+  top: 100px;
+  left: 0;
+}
+
+.rightColumn {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 100px;
+  max-width: calc(100% - 5rem);
+  line-height: 1.1;
+  position: fixed;
+  top: 100px;
+  right: -20px;
+}
