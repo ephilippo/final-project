@@ -1,14 +1,48 @@
-const loginForm = document.getElementById("login-form");
+const loginForm = document.getElementById("loginForm");
+const createForm = document.getElementByID("createForm");
 
 loginForm.addEventListener("submit", event => {
    // stop our form submission from refreshing the page
    event.preventDefault();
   
-  //get dream value and add it to the list
-  let uname = loginForm.elements.uname.value;
-  let psw   = loginForm.elements.psw.value
+  //get usarname and password
+  let uname = loginForm.elements.username.value;
+  let psw   = loginForm.elements.pass.value;
   
   fetch('/login', {
+    method:'POST',
+    body:JSON.stringify({uname: uname, psw: psw}),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  .then( response => response.json() )
+  .then( json => {
+    if(json.login) {
+      window.alert("Login Successful");
+      self.location="index.html"
+    }
+    else{
+      window.alert("Wrong Username/Password");
+    }
+      
+  })
+  
+  
+  //reset form
+  loginForm.reset();
+   
+});
+
+createForm.addEventListener("submit", event => {
+   // stop our form submission from refreshing the page
+   event.preventDefault();
+  
+  //get usarname and password
+  let uname = createForm.elements.username.value;
+  let psw   = createForm.elements.pass.value;
+  
+  fetch('/create', {
     method:'POST',
     body:JSON.stringify({uname: uname, psw: psw}),
     headers: {
@@ -21,18 +55,13 @@ loginForm.addEventListener("submit", event => {
       window.alert("New Account Created")
       self.location="index.html"
     }
-    else if(json.login) {
-      window.alert("Login Successful");
-      self.location="index.html"
-    }
     else{
-      window.alert("Wrong Password");
+      window.alert("Account already exists");
     }
-      
   })
   
   
   //reset form
-  loginForm.reset();
+  createForm.reset();
    
 });
