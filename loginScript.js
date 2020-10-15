@@ -39,8 +39,8 @@ createForm.addEventListener("submit", event => {
    event.preventDefault();
   
   //get usarname and password
-  let uname = createForm.elements.username.value;
-  let psw   = createForm.elements.pass.value;
+  let uname = createForm.elements.user.value;
+  let psw   = createForm.elements.pword.value;
   
   fetch('/create', {
     method:'POST',
