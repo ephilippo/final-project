@@ -32,5 +32,7 @@ We really wanted to put multiplayer functionality in this game, and tried to do 
 ## Responsibilities
 - Sadie Lombardi : UI Design 
 - Hezekiah Owuor : Game Design
-- Mattheus Nascimento : 
-- Edward Philippo
+- Mattheus Nascimento : Server and Database
+- Edward Philippo : Chat Functionality
+
+https://drive.google.com/file/d/1JEB2ERcQq2IeT5lJoOGhyas-c_Pfxhe5/view?usp=sharing
