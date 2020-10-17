@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Staatliches&display=swap" rel="stylesheet"/>
+
+    <title>P.B.S.S | Play!</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/108/three.min.js"></script>
+    <script src="multiplayer-scripts.js" defer></script>
+    
+  </head>
+
+  <body>
+    <main>
+      <h1 id="gameTitle">Paddle Ball Super Smashem</h1>
+      <h2 id="whoAmI">
+        username goes here
+      </h2>
+
+      <nav>
+        <ul>
+          <li class="navItem">
+            <a href="main.html">
+              <img
+                class="navImg"
+                src="https://cdn.glitch.com/59705fef-3742-460a-8630-e7e6a2c5b042%2Fhome.png?v=1602795175448"
+                alt="profile picture"
+              />
+            </a>
+          </li>
+
+          <li class="navItem">
+            <a href="profile.html">
+              <img
+                class="navImg"
+                src="https://cdn.glitch.com/59705fef-3742-460a-8630-e7e6a2c5b042%2Fprofile.png?v=1602795175287"
+                alt="profile picture"
+              />
+            </a>
+          </li>
+
+          <li class="navItem">
+            <a href="login.html">
+              <img
+                class="navImg"
+                src="https://cdn.glitch.com/59705fef-3742-460a-8630-e7e6a2c5b042%2Flogout.png?v=1602795174155"
+                alt="exit sign"
+              />
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div id="chatbox">
+        <form id="chatform">
+            <label class="formLabel" for="user">Global Chat</label>
+            <input
+              type="text"
+              id="chat"
+              name="friend"
+              placeholder="big sneeze"/>
+          <button class="submit" type="submit" value="send">Send</button>
+          <div id="inbox"></div>
+        </form>
+      </div>        
+    </main>
+  </body>
+</html>

@@ -1,98 +1,234 @@
-/* this file is loaded by index.html and styles the page */
 
-* {
-  box-sizing: border-box;
+/*Colors
+#FFCE01;
+#4FD4DF;
+#2FFA40
+#E64643*/
+
+*{
+  	font-family: 'Lato', sans-serif;
+
 }
 
-body {
-  font-family: sans-serif;
-  margin: 2em 1em;
-  line-height: 1.5em;
-  margin: 0;
-  overflow: hidden;
-  background-color: #E6CDFF;
-}
+main{
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: 'Lato', sans-serif;
+}	
 
-h1 {
-  font-family: 'Press Start 2P', cursive;
-  color: #373fff;
-  max-width: calc(100% - 5rem);
-  line-height: 1.1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-self: center;
-  align-content: center;
-  flex-basis: auto;
+#whoAmI{
+  text-align: center;
   
 }
 
-form {
-  background-color: #eee;
-  display: grid;
-  grid-gap: 1em;
+#gameMain {
+	min-width: 40em;
+}
+  
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#loginFlex{
+		justify-content: center;
+}
+
+#gameTitle{
+	font-family: 'Staatliches', cursive;
+	color: #E64643;
+	text-shadow: -2px 4px black;
+	font-size: 4em;
+	text-align: center;
+}
+
+.mpa{
+	width: 15em;
+	padding: 1em;
+	font-weight: 800;
+}
+
+.mpa, #loginForm {
+	background-color: #FFCE01;
+	margin-right: 2%;
+	margin-bottom: 2%;
+}
+
+.mpa, #createForm {
+	background-color: #4FD4DF;
+	margin-left: 2%;
+}
+
+.formTitle {
+	font-family: 'Staatliches', cursive;
+	text-shadow: -1px 2px white;
+}
+
+.navItem{
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+.navImg{
+	height: 40px;
+}
+
+ ul{
+	display: flex;
+	list-style: none;
+	justify-content: center;
+	padding-left: 0;
+}
+
+nav{
+	border-bottom: solid 0.2em black;
+	margin-bottom: 5%;
+}
+
+#leftSidebar{
+	width: 45%;
+	min-width: 20em;
+	margin-right: 1em;
+	margin-left: 1em;
+	margin-bottom: 2em;
+}
+
+#rightSidebar{
+	width: 45%;
+	min-width: 20em;
+	margin-right: 1em;
+	margin-left: 1em;
+}
+
+
+/*!!!*/
+#friendForm{
+	background-color: #4FD4DF;
+  margin-left: 1.25%;
+  margin-right: 1.25%;
+  min-width: 12em;
+  padding-left: 0;
+}
+
+#chatSection{
+	padding: 1em;
+	background-color: #4FD4DF;
+	
+}
+
+#playAI{
+	background-color: #2FFA40;
+	padding: 1em;
+	margin-bottom: 2em;
+}
+
+
+#profile{
+	width: 100em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+#usernameDisplay{
+	font-size: 2em;
+	text-align: center;
+
+}
+
+#name{
+	background-color: #4FD4DF;
+	width: 50%;
+	min-width: 20em;
+	padding: 0.5em;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.nameDeco{
+	height: 1.5em;
+	margin-top: 2em;
+	margin-left: 0.5em;
+	margin-right: 0.5em;
+}
+
+#ratio{
+	background-color: #2FFA40;
+	width: 50%;
+	min-width: 8em;
+	padding: 0em;
+	font-family: 'Staatliches', cursive;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-size: 2em;
+	font-family: 'Staatliches', cursive;
+	text-shadow: -1px 2px white;
+}
+
+#ratio > h3{
+	margin-bottom: 0;
+}
+
+#gameBox{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #FFCE01;
+	padding: 1em;
+}
+
+#canvas{
+	background-color: white;
+	width: 99%;
+}
+
+.gameScoring{
+	font-family: 'Staatliches', cursive;
+	z-index: 1;	
+}
+
+#p1{
+	margin-bottom: -0.5em;
+	text-shadow: -1px 4px #2FFA40;
+
+}
+
+#p2{
+	margin-top: -0.5em;
+	text-shadow: -1px 4px #4FD4DF;
+}
+
+.gameToggleables {
+  display: none;
+}
+
+#joinFriend {
+  background-color: #4FD4DF;
   padding: 1em;
-  max-width: 40ch;
+  width: 25em;
 }
 
-input {
-  border: 1px solid silver;
-  display: block;
-  font-size: 16px;
-  margin-bottom: 10px;
-  padding: 5px;
-  width: 100%;
+input{
+  border: none;
+  padding: 0.5em;
+  margin: 8px 0;
+  box-sizing: border-box;
+  width: 60%;
 }
 
-form button {
-  background-color: #bbbbf2;
-  border: 2px solid currentColor;
-  border-radius: .25em;
+button{
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 0.5em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.3em;
+  font-family: 'Staatliches', cursive;
   cursor: pointer;
-  font-size: inherit;
-  line-height: 1.4em;
-  padding: 0.25em 1em;
-  max-width: 20ch;
-}
-
-form button:hover {
-  background-color: lavender;
-}
-
-footer {
-  margin-top: 3em;
-  padding-top: 1.5em;
-  border-top: 1px solid lightgrey;
-}
-
-#canvas {
-  padding: 0;
-  display: block;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-}
-
-.leftColumn {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 100px;
-  max-width: calc(100% - 5rem);
-  line-height: 1.1;
-  position: fixed;
-  top: 100px;
-  left: 0;
-}
-
-.rightColumn {
-  font-family: 'Press Start 2P', cursive;
-  font-size: 100px;
-  max-width: calc(100% - 5rem);
-  line-height: 1.1;
-  position: fixed;
-  top: 100px;
-  right: -20px;
 }
