@@ -1,67 +1,106 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-		<link rel="stylesheet" type="text/css" href="style.css" />
-		<link href="https://fonts.googleapis.com/css2?family=Lato&family=Staatliches&display=swap" rel="stylesheet">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&family=Staatliches&display=swap"
+      rel="stylesheet"
+    />
 
-		<title>P.B.S.S | Your Profile</title>
+    <title>P.B.S.S | Your Profile</title>
+  </head>
 
-	</head>
+  <body>
+    <main>
+      <h1 id="gameTitle">Paddle Ball Super Smashem</h1>
+      <nav>
+        <ul>
+          <li class="navItem">
+            <a href="main.html">
+              <img
+                class="navImg"
+                src="https://cdn.glitch.com/59705fef-3742-460a-8630-e7e6a2c5b042%2Fhome.png?v=1602795175448"
+                alt="profile picture"
+              />
+            </a>
+          </li>
 
-	<body>
-		
-		<main>
-			<h1 id="gameTitle">Paddle Ball Super Smashem</h1>
-			
-			<nav>
-				<ul>
-					
-					<li class="navItem">
-						<a href="index.html">
-							<img class="navImg" src="images/home.png" alt="profile picture" />
-						</a>
-					</li>
-					
-					<li class="navItem">
-						<a href="login.html">
-							<img class="navImg" src="images/logout.png" alt="exit sign" />					
-						</a>
-					</li>					
-			</nav>
-			<div style="justify-content: center;" class="flex-container">
-				
-				<article id="profile">
-					<section id="name">
-						<img class="nameDeco" src="images/lightning.png" alt="lightning bolt" />
-						<h2 id="usernameDisplay" class="formTitle">supersmasher69</h2>
-						<img class="nameDeco" src="images/lightning.png" alt="lightning bolt" />
-					</section>
-					
-					<section id="ratio">
-						<h3>WIN / LOSS</h3>
-						<table>
-							<tr>
-								<td id="wins">
-									9
-								</td>
-								
-								<td>
-									/
-								</td>
-								
-								<td id="losses">
-									3
-								</td>
-							</tr>
-						</table>
-					</section>
-				</article>
-				
-				
-		</main>
-		
-	</body>
-  
+          <li class="navItem">
+            <a href="login.html">
+              <img
+                class="navImg"
+                src="https://cdn.glitch.com/59705fef-3742-460a-8630-e7e6a2c5b042%2Flogout.png?v=1602795174155"
+                alt="exit sign"
+              />
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div style="justify-content: center;" class="flex-container">
+        <article id="profile">
+          <section id="name">
+            <img
+              class="nameDeco"
+              src="https://cdn.glitch.com/59705fef-3742-460a-8630-e7e6a2c5b042%2Flightning.png?v=1602795174002"
+              alt="lightning bolt"
+            />
+            <h2 id="usernameDisplay" class="formTitle"></h2>
+            <img
+              class="nameDeco"
+              src="https://cdn.glitch.com/59705fef-3742-460a-8630-e7e6a2c5b042%2Flightning.png?v=1602795174002"
+              alt="lightning bolt"
+            />
+          </section>
+
+          <section id="ratio">
+            <h3>WIN / LOSS</h3>
+            <table>
+              <tr>
+                <td id="wins">
+                  9
+                </td>
+
+                <td>
+                  /
+                </td>
+
+                <td id="losses">
+                  3
+                </td>
+              </tr>
+            </table>
+          </section>
+        </article>
+      </div>
+    </main>
+
+    <script>
+      //when the window loads, get the score from the database, and display on screen.
+      window.onload = function() {
+        
+        let uname = sessionStorage.user;
+        
+        //display elements on page.
+        document.getElementById("usernameDisplay").innerHTML = uname;
+      
+         //grabs score, not sure if this is right
+        fetch("/score", {
+          method: "POST",
+          //send the username
+          body: JSON.stringify({ uname: uname }),
+          headers: {
+            "Content-Type": "application/json"
+          }
+          //get the response from the server (wins and losses) in json object
+        })
+          .then(response => response.json())
+          .then(json => {
+          
+            document.getElementById("wins").innerHTML = json.win;
+            document.getElementById("losses").innerHTML = json.loss;
+          });
+      };
+    </script>
+  </body>
 </html>

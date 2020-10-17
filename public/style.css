@@ -1,9 +1,26 @@
+
+/*Colors
+#FFCE01;
+#4FD4DF;
+#2FFA40
+#E64643*/
+
+*{
+  	font-family: 'Lato', sans-serif;
+
+}
+
 main{
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
 	font-family: 'Lato', sans-serif;
 }	
+
+#whoAmI{
+  text-align: center;
+  
+}
 
 #gameMain {
 	min-width: 40em;
@@ -70,7 +87,7 @@ nav{
 }
 
 #leftSidebar{
-	width: 40%;
+	width: 45%;
 	min-width: 20em;
 	margin-right: 1em;
 	margin-left: 1em;
@@ -78,18 +95,23 @@ nav{
 }
 
 #rightSidebar{
-	width: 50%;
+	width: 45%;
 	min-width: 20em;
 	margin-right: 1em;
 	margin-left: 1em;
 }
 
-#createLobby{
-	padding: 1em;
-	background-color: #FFCE01;
+
+/*!!!*/
+#friendForm{
+	background-color: #4FD4DF;
+  margin-left: 1.25%;
+  margin-right: 1.25%;
+  min-width: 12em;
+  padding-left: 0;
 }
 
-#lobbies{
+#chatSection{
 	padding: 1em;
 	background-color: #4FD4DF;
 	
@@ -101,12 +123,6 @@ nav{
 	margin-bottom: 2em;
 }
 
-#flex-gap{
-	width: 2em;
-	height: 2em;
-	background-color: blue;
-	margin-bottom: 2em;
-}
 
 #profile{
 	width: 100em;
@@ -184,4 +200,35 @@ nav{
 #p2{
 	margin-top: -0.5em;
 	text-shadow: -1px 4px #4FD4DF;
+}
+
+.gameToggleables {
+  display: none;
+}
+
+#joinFriend {
+  background-color: #4FD4DF;
+  padding: 1em;
+  width: 25em;
+}
+
+input{
+  border: none;
+  padding: 0.5em;
+  margin: 8px 0;
+  box-sizing: border-box;
+  width: 60%;
+}
+
+button{
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 0.5em;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.3em;
+  font-family: 'Staatliches', cursive;
+  cursor: pointer;
 }

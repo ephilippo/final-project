@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Staatliches&display=swap" rel="stylesheet"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+
+    <title>P.B.S.S | Main Page</title>
+  </head>
+
+  <body>
+    <main>
+      <h1 id="gameTitle">Paddle Ball Super Smashem</h1>
+      <h2 id="whoAmI">
+        
+      </h2>
+
+      <nav>
+        <ul>
+          <li class="navItem">
+            <a href="profile.html">
+              <img
+                class="navImg"
+                src="https://cdn.glitch.com/59705fef-3742-460a-8630-e7e6a2c5b042%2Fprofile.png?v=1602795175287"
+                alt="profile picture"
+              />
+            </a>
+          </li>
+
+          <li class="navItem">
+            <a href="login.html">
+              <img
+                class="navImg"
+                src="https://cdn.glitch.com/59705fef-3742-460a-8630-e7e6a2c5b042%2Flogout.png?v=1602795174155"
+                alt="exit sign"
+              />
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div style="justify-content: center;" class="flex-container">
+        <article id="leftSidebar">
+          <section id="playAI">
+            <a style="text-decoration: none; color: black;" href="game.html">
+              <h2 class="formTitle">Play Against a Computer</h2>
+
+              <img
+                style="margin-left: auto; margin-right: auto; display: block;"
+                width="60px"
+                src="https://cdn.glitch.com/59705fef-3742-460a-8630-e7e6a2c5b042%2Fgame-controller.png?v=1602795175399"
+                alt="game controller"
+              />
+
+              <p>
+                Play against a perfect AI, and see how many rounds you can last!
+              </p>
+            </a>
+          </section>
+        </article>
+
+        <article id="rightSidebar">
+          <section id="chatSection">
+            <a style="text-decoration: none; color: black;" href="multiplayer.html">
+            <h2 class="formTitle">Live Chat</h2>
+            <img
+                style="margin-left: auto; margin-right: auto; display: block;"
+                width="60px"
+                src="https://cdn.glitch.com/59705fef-3742-460a-8630-e7e6a2c5b042%2Fgame-controller.png?v=1602795175399"
+                alt="game controller"
+              />
+              <p>
+                Chat with other players Online!
+              </p>
+            </a>
+          </section>
+        </article>
+      </div>
+    </main>
+    <script>
+    window.onload = function() {
+        
+        let uname = sessionStorage.user;
+        document.getElementById("whoAmI").innerHTML = uname;
+      }
+    </script>
+  </body>
+</html>
